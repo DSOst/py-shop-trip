@@ -1,5 +1,4 @@
 from app.car import Car
-from app.utils import calculate_distance
 from app.shop import Shop
 import math
 
