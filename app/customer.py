@@ -24,13 +24,7 @@ class Customer:
         return fuel_to_shop + fuel_to_home + products_cost
 
     def visit_shop(self, shop: Shop, fuel_price: float) -> None:
-        distance = calculate_distance(self.location, shop.location)
-
-        fuel_to_shop = self.car.calculate_fuel_cost(distance, fuel_price)
-        fuel_to_home = self.car.calculate_fuel_cost(distance, fuel_price)
-        products_cost = shop.calculate_products_cost(self.product_cart)
-
-        total_cost = fuel_to_shop + fuel_to_home + products_cost
+        total_cost = self.calculate_trip_cost(shop, fuel_price)
 
         print(f"{self.name} rides to {shop.name}\n")
         self.location = shop.location
@@ -38,7 +32,6 @@ class Customer:
         shop.print_receipt(self.name, self.product_cart)
 
         print(f"{self.name} rides home")
-        self.location = self.location
 
         self.money -= total_cost
         print(f"{self.name} now has {round(self.money, 2)} dollars\n")
