@@ -1,4 +1,4 @@
-from datetime import datetime
+import datetime
 
 
 class Shop:
@@ -17,7 +17,7 @@ class Shop:
 
     def print_receipt(self, customer_name: str,
                       product_cart: dict) -> None:
-        now = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
+        now = datetime.datetime.now().strftime("%d/%m/%Y %H:%M:%S")
         print(f"Date: {now}")
         print(f"Thanks, {customer_name}, for your purchase!")
         print("You have bought:")
